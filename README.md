@@ -16,11 +16,11 @@ websocket通信还未实现
 
 ### 2.配置
 
-修改config.yml, 找到post关键字, 修改为以下配置(注意格式缩进对齐) [参考](config.yml)
+修改config.yml, 找到post关键字, 添加以下配置(注意格式缩进对齐) [参考](config.yml)
 
 ```yaml
 post:                               # 反向HTTP POST地址列表
-  - url: 'http://127.0.0.1:8080'    # 地址
+  - url: 'http://127.0.0.1:8400'    # 地址
     secret: ''                      # 密钥
 ```
 
@@ -119,7 +119,14 @@ GET请求http://127.0.0.1:5700/send_private_msg?user_id=xxxxx&message=你好~
 
 ```
 
-### 2.Controller
+### 2.yml
+
+```yaml
+server:
+  port: 8400
+```
+
+### 3.Controller
 
 ```java
 @RestController
@@ -135,7 +142,7 @@ public class SpbController {
 }
 ```
 
-### 3.Service
+### 4.Service
 
 service
 
@@ -189,7 +196,7 @@ public class SpbServiceImpl implements SpbService {
 
 ```
 
-### 4.Utils
+### 5.Utils
 
 ```java
 public class HttpRequestUtils {
